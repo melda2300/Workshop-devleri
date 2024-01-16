@@ -30,11 +30,11 @@ public class Book {
         this.authorName = authorName;
     }
 
-    public int getPage() {
+    public int getPage () {
         return page;
     }
 
-    public void setPage(int page) {
+    public void setPage (int page) {
         this.page = page;
     }
 }

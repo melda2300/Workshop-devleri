@@ -3,7 +3,11 @@ public class User {
     private String tc;
     private String name;
     private String lastName;
+    private List<Book> books;
 
+    public User(){
+        this.books=new ArrayList<>();
+    }
 
     public int getId() {
         return id;
@@ -35,6 +39,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
 

@@ -1,3 +1,4 @@
+import java.util.List;
 public class UserService {
 
     private final BookService bookService;
@@ -17,8 +18,24 @@ public class UserService {
     }
 
     public void delate(User user) {
-        users[userCount] = user;
-        userCount--;
+        boolean bookFound = false;
+        for (int a = 0; a < bookCount; a++) {
+            if (books[a].getId() == book.getId()) {
+                bookFound = true;
+                break;
+            }
+            if (bookFound) {
+                Book[] updatedBooks = new Book[bookCount - 1];
+                int index = 0;
+                for (int b = 0; b < bookCount; b++) {
+                    if (b != a) {
+                        updatedBooks[index++] = books[b];
+                    }
+                }
+                return "işlem tamamlandı.";
+            }
+        }
+        return "Bu ID'ye sahip bir kitap bulunamadı , İşlem başarısız oldu tekrar deneyiniz..";
 
     }
     public void update(User user, int id) {
@@ -51,7 +68,10 @@ public class UserService {
     }
 
     public static String  assignBookToUser(int userId, int bookId) {
-        return "Kimlik ile rezervasyon yapın " + bookId + " kimliğine sahip kullanıcıya başarıyla atandı " + userId + " .";
+        List<Book> userBooks = user.getBooks();
+        userBooks.add(book);
+        user.setBooks(userBooks);
+        return "Kitap başarıyla kullanıcıya atandı.";
     }
     // Delete YAPILDI
     // Update YAPILDI

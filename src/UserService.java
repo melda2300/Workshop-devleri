@@ -65,13 +65,13 @@ public class UserService {
         System.out.println("Böyle bir kullanıcı bulunamadı.");
         return null;
     }
-
     public static String assignBookToUser(User user, Book book) {
         List<Book> userBooks = user.getBooks();
 
         userBooks.add(book);
         user.setBooks(userBooks);
         return "Kitap başarıyla kullanıcıya atandı.";
+
     }
 }
 // Delete Düzeltildi

@@ -37,16 +37,40 @@ public class BookService {
         return books;
     }
 
-    public void delete(Book book) {
-        books[bookCount] = book;
-        bookCount--;
+     public String delete(Book book) {
+        boolean bookFound = false;
+        for (int a = 0; a < bookCount; a++) {
+            if (books[a].getId() == book.getId()) {
+                bookFound = true;
+                break;
+            }
+            if (bookFound) {
+                Book[] updatedBooks = new Book[bookCount - 1];
+                int index = 0;
+                for (int b = 0; b < bookCount; b++) {
+                    if (b != a) {
+                        updatedBooks[index++] = books[b];
+                    }
+                }
+                return "işlem tamamlandı.";
+            }
+        }
+        return "Bu ID'ye sahip bir kitap bulunamadı , İşlem başarısız oldu tekrar deneyiniz..";
     }
 
-    public static void getBookById(Book book, int Id) {
-        if (book.getId() == Id) {
-            System.out.println("Bulunan Kitap: " + book);
+    public void getBookById(int ID) {
+        if (books.length == ID) {
+            System.out.println("Eşleşmeler:");
+            int a = 0;
+            while (a < books.length) {
+                if (books[a] != null && books[a].getId() == ID) {
+                    System.out.println(books[a].getId());
+                    break;
+                }
+                a++;
+            }
         } else {
-            System.out.println("Kimlik ile rezervasyon yapın: " + Id + " bulunamadı.");
+            System.out.println("Eşleşme yapılamadı");
         }
     }
 

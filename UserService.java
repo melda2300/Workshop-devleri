@@ -56,6 +56,6 @@ public class UserService {
     // Delete YAPILDI
     // Update YAPILDI
     // getUserBYTC YAPILDI
-    // assignBookToUser yapıldı
+    // assignBookToUser YAPILDI
     // methodlariniz yaziniz.
 }

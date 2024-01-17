@@ -28,13 +28,7 @@ public class Book {
         this.authorName = authorName;
     }
 
-
     public int getPage() {
-        return page;
-    }
-
-   
-    public int getPage () {
         return page;
     }
 

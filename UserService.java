@@ -1,4 +1,3 @@
-
 import java.util.List;
 
 public class UserService {
@@ -54,7 +53,7 @@ public class UserService {
         if (updateService) {
             System.out.println("Bilgiler güncellenmiştir.");
         } else {
-
+        System.out.println("Bilgiler güncellenemedi tekrar deneyiniz.");
         }
 
     }

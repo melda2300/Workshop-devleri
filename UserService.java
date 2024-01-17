@@ -87,10 +87,18 @@ public class UserService {
 
 
     public static String assignBookToUser(User user, Book book) {
-        List < Book > userBooks = user.getBooks();
-        userBooks.add(book);
-        user.setBooks(userBooks);
-        return "Kitap başarıyla kullanıcıya atandı.";
+         if (user != null && book !=null) {
+            List<Book> userBooks = user.getBooks();
+            if (userBooks == null) {
+                userBooks = new ArrayList<>();
+
+            }
+            userBooks.add(book);
+            user.setBooks(userBooks);
+            return "Kitap başarıyla kullanıcıya atandı.";
+        }
+
+        return "hata oluştu tekrar deneyiniz
 
     }
     // Delete YAPILDI

@@ -64,12 +64,20 @@ public class UserService {
         System.out.println("Böyle bir kullanıcı bulunamadı.");
         return null;
     }
+ public static String assignBookToUser(User user, Book book) {
+        if (user != null && book !=null) {
+            List<Book> userBooks = user.getBooks();
+            if (userBooks == null) {
+                userBooks = new ArrayList<>();
 
-    public static String  assignBookToUser(int userId, int bookId) {
-        List<Book> userBooks = user.getBooks();
-        userBooks.add(book);
-        user.setBooks(userBooks);
-        return "Kitap başarıyla kullanıcıya atandı.";
+            }
+            userBooks.add(book);
+            user.setBooks(userBooks);
+            return "Kitap başarıyla kullanıcıya atandı.";
+        }
+
+        return "hata oluştu tekrar deneyiniz";
+  
     }
     // Delete YAPILDI
     // Update YAPILDI

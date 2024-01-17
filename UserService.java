@@ -17,27 +17,32 @@ public class UserService {
         users[userCount] = user;
         userCount++;
     }
-
-   public String delate(User user) {
-        boolean userFound = false;
+ public String delate(User userId) {
+        boolean isUserFound = false;
         for (int b = 0; b < userCount; b++) {
-            if (users[b].getId() == user.getId()) {
-                userFound = true;
+            if (users[b].getId() == userId.getId()) {
+                isUserFound = true;
                 break;
             }
-            if (userFound) {
+            if (isUserFound) {
                 User[] updatedusers = new User[userCount - 1];
-                int index = 0;
+                int updatedUserCount = 0;
                 for (int a = 0; a < userCount; a++) {
-                    if (a != b) {
-                        updatedusers[index++] = users[a];
-                    }
+
+                    updatedusers[updatedUserCount] = users[a];
+                    updatedUserCount++;
                 }
-                return "İşlem tamamlandı";
+                users = updatedusers;
+                userCount = updatedUserCount;
+                return "Kimliği olan kullanıcı " + userId + " silindi. ";
+            } else {
+                return "Kimliği olan kullanıcı " + userId + " bulunamadı. ";
             }
+
         }
-        return "Bu ID'ye sahip bir kitap bulunamadı , İşlem başarısız oldu tekrar deneyiniz.";
+        return "hata tekrar deneyiniz.";
     }
+  
     public void update(User user, int id) {
         boolean updateService = false;
         for (int a = 0; a < userCount; a++) {
@@ -91,13 +96,11 @@ public class UserService {
             List<Book> userBooks = user.getBooks();
             if (userBooks == null) {
                 userBooks = new ArrayList<>();
-
             }
             userBooks.add(book);
             user.setBooks(userBooks);
             return "Kitap başarıyla kullanıcıya atandı.";
         }
-
         return "hata oluştu tekrar deneyiniz
 
     }

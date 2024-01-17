@@ -38,6 +38,7 @@ public class BookService {
     }
 
      public String delete(Book book) {
+
         boolean bookFound = false;
         for (int a = 0; a < bookCount; a++) {
             if (books[a].getId() == book.getId()) {
@@ -59,6 +60,7 @@ public class BookService {
     }
 
     public void getBookById(int ID) {
+
         if (books.length == ID) {
             System.out.println("Eşleşmeler:");
             int a = 0;
@@ -72,6 +74,10 @@ public class BookService {
         } else {
             System.out.println("Eşleşme yapılamadı");
         }
+    }
+  
+   public Book[] getBooks() {
+        return books;
     }
 
     public void getBooksByAuthorName(Book name, Book writer) {

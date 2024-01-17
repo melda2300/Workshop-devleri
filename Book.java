@@ -4,8 +4,6 @@ public class Book {
     private String authorName;
     private int page;
 
-    
-
     public int getId() {
         return id;
     }
@@ -30,7 +28,7 @@ public class Book {
         this.authorName = authorName;
     }
 
-    public int getPage () {
+    public int getPage() {
         return page;
     }
 

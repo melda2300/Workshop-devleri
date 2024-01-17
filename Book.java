@@ -4,7 +4,6 @@ public class Book {
     private String authorName;
     private int page;
 
-
     public int getId() {
         return id;
     }
@@ -29,11 +28,17 @@ public class Book {
         this.authorName = authorName;
     }
 
+
     public int getPage() {
         return page;
     }
 
-    public void setPage(int page) {
+   
+    public int getPage () {
+        return page;
+    }
+
+    public void setPage (int page) {
         this.page = page;
     }
 }

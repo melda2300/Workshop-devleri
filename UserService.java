@@ -1,3 +1,4 @@
+
 import java.util.List;
 
 public class UserService {
@@ -18,7 +19,7 @@ public class UserService {
         userCount++;
     }
 
-    public String delate(User user) {
+   public String delate(User user) {
         boolean userFound = false;
         for (int b = 0; b < userCount; b++) {
             if (users[b].getId() == user.getId()) {
@@ -38,7 +39,6 @@ public class UserService {
         }
         return "Bu ID'ye sahip bir kitap bulunamadı , İşlem başarısız oldu tekrar deneyiniz.";
     }
-
     public void update(User user, int id) {
         boolean updateService = false;
         for (int a = 0; a < userCount; a++) {
@@ -50,23 +50,27 @@ public class UserService {
                 break;
             }
         }
+
         if (updateService) {
             System.out.println("Bilgiler güncellenmiştir.");
         } else {
-            System.out.println("Bilgiler güncelenemedi.");
+
         }
 
     }
 
-    public User getUserBYTC(int id) {
+
+
+    public User getUserBYTC(int TC) {
         for (int i = 0; i < userCount; i++) {
-            if (users[i].getId() == id) {
+            if (users[i].getId() == TC) {
                 return users[i];
             }
         }
         System.out.println("Böyle bir kullanıcı bulunamadı.");
         return null;
     }
+
 
     public static String assignBookToUser(User user, Book book) {
         List < Book > userBooks = user.getBooks();
@@ -77,6 +81,6 @@ public class UserService {
     // Delete YAPILDI
     // Update YAPILDI
     // getUserBYTC YAPILDI
-    // assignBookToUser yapıldı
+    // assignBookToUser YAPILDI
     // methodlariniz yaziniz.
 }

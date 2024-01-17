@@ -37,7 +37,8 @@ public class BookService {
         return books;
     }
 
-    public String delete(Book book) {
+     public String delete(Book book) {
+
         boolean bookFound = false;
         for (int a = 0; a < bookCount; a++) {
             if (books[a].getId() == book.getId()) {
@@ -58,7 +59,8 @@ public class BookService {
         return "Bu ID'ye sahip bir kitap bulunamadı , İşlem başarısız oldu tekrar deneyiniz..";
     }
 
-    public  void getBookById(int ID) {
+    public void getBookById(int ID) {
+
         if (books.length == ID) {
             System.out.println("Eşleşmeler:");
             int a = 0;
@@ -72,6 +74,10 @@ public class BookService {
         } else {
             System.out.println("Eşleşme yapılamadı");
         }
+    }
+  
+   public Book[] getBooks() {
+        return books;
     }
 
     public void getBooksByAuthorName(Book name, Book writer) {

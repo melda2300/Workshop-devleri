@@ -6,9 +6,8 @@ public class User {
     private String tc;
     private String name;
     private String lastName;
-
     private List<Book> books;
-
+    
     public int getId() {
         return id;
     }
@@ -43,7 +42,6 @@ public class User {
     public List<Book> getBooks() {
         return books;
     }
-
     public void setBooks(List<Book> books) {
         this.books = books;
     }

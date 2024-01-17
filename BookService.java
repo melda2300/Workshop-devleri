@@ -37,8 +37,7 @@ public class BookService {
         return books;
     }
 
-     public String delete(Book book) {
-
+     public String delete(Book bookId) {
         boolean bookFound = false;
         for (int a = 0; a < bookCount; a++) {
             if (books[a].getId() == book.getId()) {
@@ -47,14 +46,21 @@ public class BookService {
             }
             if (bookFound) {
                 Book[] updatedBooks = new Book[bookCount - 1];
-                int index = 0;
+                int updatedBooksCount= 0;
                 for (int b = 0; b < bookCount; b++) {
                     if (b != a) {
-                        updatedBooks[index++] = books[b];
+                        updatedBooks[updatedBooksCount++] = books[b];
+                        updatedBooksCount++;
                     }
+                    books=updatedBooks;
+                    bookCount=updatedBooksCount
+                return "Kimliği olan kullanıcı " + bookId + " silindi. ";
+               } else {
+                return "Kimliği olan kullanıcı " + bookId + " bulunamadı. ";
                 }
-                return "işlem tamamlandı.";
             }
+         return "hata tekrar deneyiniz.";
+
         }
         return "Bu ID'ye sahip bir kitap bulunamadı , İşlem başarısız oldu tekrar deneyiniz..";
     }
@@ -79,8 +85,7 @@ public class BookService {
    public Book[] getBooks() {
         return books;
     }
-
-    public void getBooksByAuthorName(Book name, Book writer) {
+ public void getBooksByAuthorName(Book name, Book writer) {
         if (name.getName() == writer.getAuthorName()) {
             System.out.println("Eşleşmeler:");
             for (int a = 0; a < books.length; a++) {
